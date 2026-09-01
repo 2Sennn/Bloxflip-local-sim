@@ -1,0 +1,9 @@
+{
+  "name": "bloxflip-local-sim",
+  "private": true,
+  "description": "Chrome extension that simulates Bloxflip mines, towers, and dice against a local wallet.",
+  "scripts": {
+    "test": "node test/check.js && node test/run.js",
+    "check": "node test/check.js"
+  }
+}

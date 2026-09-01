@@ -1,0 +1,47 @@
+{
+  "manifest_version": 3,
+  "name": "Bloxflip Emulator",
+  "version": "1.3.5",
+  "description": "Local bloxflip emulator. Mines, towers, dice, fake balance.",
+  "permissions": ["storage"],
+  "host_permissions": [
+    "*://bloxflip.com/*",
+    "*://*.bloxflip.com/*",
+    "*://*.blox.land/*",
+    "*://realtime.bloxflip.com/*"
+  ],
+  "action": {
+    "default_title": "Bloxflip Emulator",
+    "default_popup": "popup/popup.html"
+  },
+  "content_scripts": [
+    {
+      "matches": ["*://bloxflip.com/*", "*://*.bloxflip.com/*"],
+      "js": ["content/bridge.js"],
+      "run_at": "document_start",
+      "all_frames": false
+    },
+    {
+      "matches": ["*://bloxflip.com/*", "*://*.bloxflip.com/*"],
+      "js": [
+        "inject/early.js",
+        "inject/util.js",
+        "inject/http.js",
+        "inject/session.js",
+        "inject/rain.js",
+        "inject/games/mines.js",
+        "inject/games/towers.js",
+        "inject/games/dice.js",
+        "inject/overlay.js",
+        "inject/router.js",
+        "inject/ws.js",
+        "inject/transport.js",
+        "inject/input.js",
+        "inject/boot.js"
+      ],
+      "run_at": "document_start",
+      "world": "MAIN",
+      "all_frames": false
+    }
+  ]
+}
